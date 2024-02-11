@@ -26,7 +26,7 @@ public class Parking extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        image =new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\road.png");
+        image =new ImageIcon("src\\main\\resources\\road.png");
         image.paintIcon(this, g, WIDTH,WIDTH);
 
     }

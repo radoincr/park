@@ -15,7 +15,7 @@ public class Bar extends JLabel {
             this.x=250 ;
             this.y=161;
 
-            bar=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\bar.png");//bar
+            bar=new ImageIcon("src\\main\\resources\\bar.png");//bar
             this.setIcon(bar);
             Dimension size = this.getPreferredSize();
             setBounds(x, y, size.width, size.height);
@@ -26,7 +26,7 @@ public class Bar extends JLabel {
 
             this.x=250 ;
             this.y=161 ;
-            bar=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\bar.png");//bar
+            bar=new ImageIcon("src\\main\\resources\\bar.png");//bar
             this.setIcon(bar);
             Dimension size = this.getPreferredSize();
             setBounds(x, y, size.width, size.height);
@@ -37,7 +37,7 @@ public class Bar extends JLabel {
 
             this.x=250 ;
             this.y=161 ;
-            bar=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\bar.png");//bar
+            bar=new ImageIcon("src\\main\\resources\\bar.png");//bar
             this.setIcon(bar);
             //Dimension size = this.getPreferredSize();
             setBounds(x, y, 20,20 );
@@ -48,12 +48,12 @@ public class Bar extends JLabel {
 
         public void setIconparking(int i)
         {
-            bar=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\bar.png");//bar
+            bar=new ImageIcon("src\\main\\resources\\bar.png");//bar
             this.setIcon(bar);
         }
         public void setIconExitparking(int id)
         {
-            bar=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car"+id+".png");
+            bar=new ImageIcon("src\\main\\resources\\car"+id+".png");
             this.setIcon(bar);
         }
 

@@ -76,11 +76,13 @@ public class MyThread implements Runnable{
                 this.sortir_parking();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
 
         }
 
-        public void entrer_parking() throws InterruptedException {
+        public void entrer_parking() throws InterruptedException, SQLException {
             try {
                 semPlace.acquire();
             } catch (InterruptedException e) {
@@ -116,7 +118,7 @@ public class MyThread implements Runnable{
 
         }
 
-        public void sortir_parking() throws InterruptedException {
+        public void sortir_parking() throws InterruptedException, SQLException {
             semRampe.acquire();
             Animation.exitParking(this.car);
             System.out.println(getAccesVoitureDesc() + " passe sur la rampe (pour sortir)");

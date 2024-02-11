@@ -22,7 +22,7 @@ public class Car extends JLabel {
         this.x=90 ;
         this.y=y ;
         this.i = i;
-        car=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car"+ (this.id - (this.id-i++)) +".png");
+        car=new ImageIcon("src\\main\\resources\\car"+ (this.id - (this.id-i++)) +".png");
 
         this.setIcon(car);
         Dimension size = this.getPreferredSize();
@@ -32,14 +32,14 @@ public class Car extends JLabel {
 
     public void setIconparking()
     {
-        car=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car"+(this.id - (this.id-i))+"1.png");
+        car=new ImageIcon("src\\main\\resources\\car"+(this.id - (this.id-i))+"1.png");
         this.setIcon(car);
         Dimension size = this.getPreferredSize();
         setBounds(x, y, size.width, size.height);
     }
     public void setIconExitparking()
     {
-        car=new ImageIcon("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car"+(this.id - (this.id-i))+".png");
+        car=new ImageIcon("src\\main\\resources\\car"+(this.id - (this.id-i))+".png");
         this.setIcon(car);
         Dimension size = this.getPreferredSize();
         setBounds(x, y, size.width, size.height);

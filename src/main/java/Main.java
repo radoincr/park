@@ -25,7 +25,7 @@ public class Main {
     private static JTable jt;
     private static CarDAO carDAO;
 
-    public static Boolean reloadDataTable(){
+    public static Boolean reloadDataTable() throws SQLException {
 
         frame1.getContentPane().removeAll();
         frame1.repaint();
@@ -38,20 +38,38 @@ public class Main {
         frame1.setSize(600,450);
         frame1.setLocation(930,400);
         frame1.setVisible(true);
+        carDAO.drawColumnChart();
+        return true;
+
+    }
+    public static Boolean reloadDataTableAndDrawBarChart() throws SQLException {
+        // Reload data table
+        frame1.getContentPane().removeAll();
+        frame1.repaint();
+        jt.repaint();
+        String column[] = {"ID", "CAR_ID", "SITUATION", "TIME ENTRER", "TIME SORTIE", "DUREE"};
+        JTable jt = new JTable(setData(), column);
+        jt.setBounds(500, 600, 600, 400);
+        JScrollPane sp = new JScrollPane(jt);
+        frame1.add(sp);
+        frame1.setSize(600, 450);
+        frame1.setLocation(930, 400);
+
+        // Draw bar chart
+
+
+        frame1.setVisible(true);
         return true;
     }
-    public static String[][] setData(){
+
+    public static String[][] setData() throws SQLException {
         ArrayList<CarDB> st = null;
         try {
             carDAO = new CarDAO();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        try {
-            st =  carDAO.getAll();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        st =  carDAO.getAll();
         String data[][] = new String[st.size()][6];
 
         int i = 0;
@@ -74,7 +92,7 @@ public class Main {
 
     public static boolean setCarId(int car_id){
         try {
-            FileWriter myWriter = new FileWriter("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car_id.txt");
+            FileWriter myWriter = new FileWriter("src\\main\\resources\\car_id.txt");
             myWriter.write(String.valueOf(car_id));
             myWriter.close();
             return true;
@@ -90,7 +108,7 @@ public class Main {
 
         int car_id = 0;
         try {
-            File myObj = new File("C:\\Users\\Lenovo\\Desktop\\db\\db\\src\\main\\resources\\car_id.txt");
+            File myObj = new File("src\\main\\resources\\car_id.txt");
             Scanner myReader = new Scanner(myObj);
             car_id = Integer.valueOf(myReader.nextLine());
             myReader.close();
@@ -103,7 +121,7 @@ public class Main {
     }
 
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws SQLException {
 
         JFrame frame = new JFrame("Projet Parking");
 
@@ -148,5 +166,7 @@ public class Main {
 
         frame.setVisible(true);
         frame1.setVisible(true);
+            //carDAO.drawCurveChart();
+            carDAO.drawColumnChart();
     }
 }
